@@ -23,14 +23,18 @@ namespace FizzBuzzProject.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        [HttpGet]
         public IActionResult FizzBuzz()
         {
-            return View();
+            var fizzBuzz = new FizzBuzzModel();
+            return View(fizzBuzz);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult FizzBuzz(FizzBuzzModel fb)
+        {
+            return View(fb);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
