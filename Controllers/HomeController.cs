@@ -34,6 +34,17 @@ namespace FizzBuzzProject.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult FizzBuzz(FizzBuzzModel fb)
         {
+            string message = "";
+            for(var i= fb.StartValue;i<= fb.EndValue; i++)
+            {
+                if (i % 3==0) message += "Fizz";
+                if (i % 5 == 0) message += "Buzz";
+                if (string.IsNullOrEmpty(message)) message = i.ToString();
+
+                fb.FizzBuzz.Add(message);
+                message = "";
+            }
+
             return View(fb);
         }
 

@@ -9,7 +9,7 @@ namespace FizzBuzzProject.Models
     {
         public int StartValue { get; set; }
         public int EndValue { get; set; }
-        public string FizzBuzz { get; set; }
+        public List<string> FizzBuzz { get; set; } = new();
 
     }
 }
